@@ -16,6 +16,7 @@ jobs:
       - run: semgrep ci
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -25,6 +26,7 @@ jobs:
           node-version: '16'
       - run: npm install
       - run: npm run test
+      
   deploy:
     needs: [semgrep, test]
     permissions: 
